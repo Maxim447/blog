@@ -1,6 +1,6 @@
 package com.example.webblog.controllers;
 
-import com.example.webblog.models.Post;
+import com.example.webblog.entities.Post;
 import com.example.webblog.repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
