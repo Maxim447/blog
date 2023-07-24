@@ -16,6 +16,8 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private Long userId;
+
     private String title;
 
     private String anons;
@@ -25,6 +27,13 @@ public class Post {
     private int views;
 
     public Post() {
+    }
+
+    public Post(Long userId, String title, String anons, String full_text) {
+        this.userId = userId;
+        this.title = title;
+        this.anons = anons;
+        this.full_text = full_text;
     }
 
     public Post(String title, String anons, String full_text) {

@@ -22,9 +22,9 @@ public class LoginController {
     private UserService userService;
 
     @GetMapping("/logout")
-    public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
+    public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth != null){
+        if (auth != null) {
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
         return "redirect:/login";
@@ -36,7 +36,7 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String login(@NotNull @RequestParam String username, @NotNull @RequestParam String password) {
+    public String login(@NotNull @RequestParam String username, @NotNull @RequestParam String password, Model model) {
         try {
             if (!userService.loadUserByUsername(username).getPassword().equals(password)) {
                 return "login";
